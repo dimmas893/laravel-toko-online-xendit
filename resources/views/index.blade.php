@@ -13,7 +13,7 @@
             content="Branding, Souvenir Perusahaan, Seminar KIT, Merchandise Kantor, Produk ART, Barang Promosi, Produk Promosi, Design Baju, Design Sendiri, Bukittinggi, Padang, Solok, Sumatera Barat, Padang Panjang, Indonesia, Payakumbuh, Sawah Lunto, Sijunjung, Tanah Datar, Batusangkar, {{ $produk->kategori->nama_kategori }}"
             name="keywords">
     @else
-        <title>{{  website()->nama_website }}</title>
+        <title>{{ website()->nama_website }}</title>
         <meta content="{!! website()->description !!}" name="description">
 
         <meta content="{{ website()->tagline }}" name="keywords">
@@ -193,7 +193,6 @@
                 transform: rotate(360deg);
             }
         }
-
     </style>
 </head>
 
@@ -206,8 +205,8 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="/" class="logo d-flex align-items-center">
-                <img src="{{ asset('websiteIcon/' . website()->icon) }}" alt="{{  website()->nama_website }}">
-                <span>{{ str_replace(' ', '',  website()->nama_website) }}</span>
+                <img src="{{ asset('websiteIcon/' . website()->icon) }}" alt="{{ website()->nama_website }}">
+                <span>{{ str_replace(' ', '', website()->nama_website) }}</span>
             </a>
 
             <nav id="navbar" class="navbar">
@@ -289,8 +288,9 @@
                 <div class="row gy-4">
                     <div class="col-lg-5 col-md-12 footer-info">
                         <a href="index.html" class="logo d-flex align-items-center">
-                            <img src="{{ asset('websiteIcon/' . website()->icon) }}" alt="{{  website()->nama_website }}">
-                            <span>{{  website()->nama_website }}</span>
+                            <img src="{{ asset('websiteIcon/' . website()->icon) }}"
+                                alt="{{ website()->nama_website }}">
+                            <span>{{ website()->nama_website }}</span>
                         </a>
                         <p>Jika Anda berencana untuk membuat merchandise promosi dengan kualitas terbaik, segera hubungi
                             kami dan kami akan memberikan informasi dan solusi terbaik bagi Anda. So let us help you
@@ -326,13 +326,15 @@
           </div> -->
                     <div class="col-lg-4 col-md-12 footer-contact text-md-start">
                         <h4 style="padding: 0;">Hubungi Kami</h4>
-                        <p>{{strip_tags(website()->address)}}, {{website()->webkecamatan->name}}, {{website()->webkota->name}}, {{website()->webprovinsi->name}}
-                            {{website()->kode_pos}}<br>
+                        <p>{{ strip_tags(website()->address) }}, Jiken, Blora,
+                            Jawa tengah
+                            {{ website()->kode_pos }}<br>
 
                             <strong>Phone: </strong>
-                            {{website()->contact}}
+                            {{ website()->contact }}
                             <br>
-                            <strong>Email:</strong> {{strtolower(str_replace(' ','',website()->nama_website))}}@gmail.com<br>
+                            <strong>Email:</strong>
+                            {{ strtolower(str_replace(' ', '', website()->nama_website)) }}@gmail.com<br>
                         </p>
 
                     </div>
@@ -343,7 +345,8 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>{{  website()->nama_website }} - 2022</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>{{ website()->nama_website }} - 2022</span></strong>. All Rights
+                Reserved
             </div>
             <div class="credits">
 
@@ -356,7 +359,8 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-    <a href="https://api.whatsapp.com/send?phone={{str_replace('+','',gantiformat(website()->contact))}}" class="float" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone={{ str_replace('+', '', gantiformat(website()->contact)) }}"
+        class="float" target="_blank">
         <i class="fa fa-whatsapp my-float"></i>
     </a>
 

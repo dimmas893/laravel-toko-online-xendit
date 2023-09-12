@@ -16,11 +16,15 @@ class WebsiteSeeder extends Seeder
     {
         DB::table('website')->insert([
             'nama_website' => 'Suma Jaya Berkah',
-            'tagline'=>'Souvenir,Branding,Produk ART',
+            'tagline' => 'Souvenir,Branding,Produk ART',
             'contact' => '085265889195',
+            'provinsi' => 10,
+            'kota' => 76,
+            'kecamatan' => 3309160,
+            'kode_pos' => 7610,
             'address' => 'Jl. Lintas Sumatera KM 4 Sawah Ilie, Nagari Saok Laweh, Kec. Kubung, Kab. Solok, Prov. Sumatera Barat, Indonesia. Kode Pos 27361',
             'icon' => '',
-            'description'=>'Web Description'
+            'description' => 'Web Description'
         ]);
     }
 }

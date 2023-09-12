@@ -22,7 +22,7 @@ class RegencyOngkir extends Model
      *
      * @var string
      */
-    protected $table = 'regenciesongkir';
+    protected $table = 'regencies';
 
     /**
      * The attributes that should be hidden for arrays.
@@ -42,7 +42,4 @@ class RegencyOngkir extends Model
     {
         return $this->belongsTo(ProvinceOngkir::class);
     }
-
-    
-
 }

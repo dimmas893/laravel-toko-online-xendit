@@ -1,5 +1,6 @@
-@extends("layouts.app")
+@extends('layouts.app')
 @section('content')
+
     <script src="//cdn.ckeditor.com/4.17.2/basic/ckeditor.js"></script>
     <div class="row">
         <div class="col-12">
@@ -50,7 +51,8 @@
                                 @csrf
                                 <div class="modal-body">
 
-                                    <input type="hidden" required name="id" id="id" value="{{ $website->id }}">
+                                    <input type="hidden" required name="id" id="id"
+                                        value="{{ $website->id }}">
 
                                     <div class="mb-2">
                                         <label for="nama" class="control-label">Nama Website</label>
@@ -79,13 +81,7 @@
                                             Tujuan</label>
                                         <select class="custom-select form-control provinsi-tujuan" required
                                             name="province_destination" id="provinsi">
-                                            <option value="">Pilih Provinsi
-                                            </option>
-                                            @if (isset($provinces))
-                                                @foreach ($provinces as $prov)
-                                                    <option value="{{ $prov->id }}">{{ $prov->name }}</option>
-                                                @endforeach
-                                            @endif
+                                            <option value="">Pilih Provinsi</option>
                                         </select>
                                     </div>
                                     <div class="mb-2">
@@ -95,12 +91,9 @@
                                             name="city_destination" id="city">
                                             <option value="">Pilih Kota /
                                                 Kabupaten</option>
-                                            @if (isset($city))
-                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                            @endif
                                         </select>
                                     </div>
-                                    <div class="mb-2">
+                                    <div class="mb-2" style="display:none;">
                                         <label class="">Kecamatan
                                             Tujuan</label>
                                         <select class="custom-select form-control kecamatan-tujuan" required
@@ -163,24 +156,25 @@
                                 @csrf
                                 <div class="modal-body">
 
-                                    <input type="hidden" required name="id" id="id" value="{{ $website->id }}">
+                                    <input type="hidden" required name="id" id="id"
+                                        value="{{ $website->id }}">
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <h3>PPN & PPH</h3>
                                             <label for="ppn">PPn %</label>
-                                            <input type="number" max="100" min="0" name="ppn" id="ppn"
-                                                value="{{ $website->trx_ppn }}" class="form-control">
+                                            <input type="number" max="100" min="0" name="ppn"
+                                                id="ppn" value="{{ $website->trx_ppn }}" class="form-control">
                                             <label for="pph">PPh %</label>
-                                            <input type="number" max="100" min="0" name="pph" id="pph"
-                                                value="{{ $website->trx_pph }}" class="form-control">
+                                            <input type="number" max="100" min="0" name="pph"
+                                                id="pph" value="{{ $website->trx_pph }}" class="form-control">
                                         </div>
 
                                         <div class="col-md-6">
                                             <h3>MarkUp Harga</h3>
                                             <label for="markup"> Transaksi Offline %</label>
-                                            <input type="number" max="100" min="0" name="markup" id="markup"
-                                                value="{{ $website->trx_markup }}" class="form-control">
+                                            <input type="number" max="100" min="0" name="markup"
+                                                id="markup" value="{{ $website->trx_markup }}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row mt-4">
@@ -189,27 +183,31 @@
                                             <label for="verifikasi">Apakah transaksi offline perlu verifikasi
                                                 atasan?</label>
 
-                                                <div class="mt-2">
-                                                    <div class="form-check">
-                                                        <input type="radio" id="verifikasi1" name="verifikasi" value="1" class="form-check-input">
-                                                        <label class="form-check-label" for="verifikasi1">Ya</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input type="radio" id="verifikasi2" name="verifikasi" value="0" class="form-check-input">
-                                                        <label class="form-check-label" for="verifikasi2">Tidak</label>
-                                                    </div>
-                                                </div> 
-                                           
+                                            <div class="mt-2">
+                                                <div class="form-check">
+                                                    <input type="radio" id="verifikasi1" name="verifikasi"
+                                                        value="1" class="form-check-input">
+                                                    <label class="form-check-label" for="verifikasi1">Ya</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" id="verifikasi2" name="verifikasi"
+                                                        value="0" class="form-check-input">
+                                                    <label class="form-check-label" for="verifikasi2">Tidak</label>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="col-md-6">
                                             <h3>Durasi Invoice Transaksi (Detik)</h3>
                                             <label for="duration_online">Transaksi Online</label>
-                                            <input type="number"  min="0" name="duration_online" id="duration_online"
-                                                value="{{ $website->trx_duration_online }}" class="form-control">
-                                                <label for="duration_offline">Transaksi Offline</label>
-                                                <input type="number"  min="0" name="duration_offline" id="duration_offline"
-                                                    value="{{ $website->trx_duration_offline }}" class="form-control">
-                                           
+                                            <input type="number" min="0" name="duration_online"
+                                                id="duration_online" value="{{ $website->trx_duration_online }}"
+                                                class="form-control">
+                                            <label for="duration_offline">Transaksi Offline</label>
+                                            <input type="number" min="0" name="duration_offline"
+                                                id="duration_offline" value="{{ $website->trx_duration_offline }}"
+                                                class="form-control">
+
                                         </div>
                                     </div>
 
@@ -254,22 +252,37 @@
             //active select2
             $(".provinsi-asal , .kota-asal, .provinsi-tujuan, .kota-tujuan, .kecamatan-tujuan").select2();
 
-            // $("#loading").show();
-            // $.ajax({
-            //     type: 'get',
-            //     url: '{{ url('ongkir/get-all-provinsi') }}',
-            //     success: function(data) {
-            //         $("select[name=province_destination]").html(data);
+            $("#loading").show();
+            $.ajax({
+                type: 'get',
+                url: '{{ url('ongkir/get-all-provinsi') }}',
+                success: function(data) {
+                    $("select[name=province_destination]").html(data);
 
-            //         $("#loading").hide();
-            //     }
-            // })
+                    // Set default value if $website->provinsi is available
+                    var provinsiId = {{ $website->provinsi ?? 'null' }};
+                    if (provinsiId !== null) {
+                        $("#provinsi").val(provinsiId).trigger(
+                            'change'); // Set the value and trigger the change event for Select2
+                    }
 
-            $("#provinsi").select2("trigger", "select", {
-                data: {
-                    id: "{{ $website->provinsi }}"
+                    $("#loading").hide();
                 }
             });
+
+            // Check if $website->provinsi exists
+            var provinsiId = {{ $website->provinsi ?? 'null' }};
+
+            // Trigger the select2 with or without a default value
+            if (provinsiId !== null) {
+                $("#provinsi").select2("trigger", "select", {
+                    data: {
+                        id: provinsiId
+                    }
+                });
+            } else {
+                // Select2 without default value
+            }
 
             $("#city").select2("trigger", "select", {
                 data: {
@@ -282,58 +295,47 @@
                     id: "{{ $website->kecamatan }}"
                 }
             });
-@if($website->trx_verifikasi)
-            var $radios = $('input:radio[name=verifikasi]');
-        if($radios.is(':checked') === false) {
-            $radios.filter('[value={{$website->trx_verifikasi}}]').prop('checked', true);
-        }
+            @if ($website->trx_verifikasi)
+                var $radios = $('input:radio[name=verifikasi]');
+                if ($radios.is(':checked') === false) {
+                    $radios.filter('[value={{ $website->trx_verifikasi }}]').prop('checked', true);
+                }
+            @endif
 
-        @endif
 
-            
 
             //ajax select kota tujuan
             $('select[name="province_destination"]').on('change', function() {
-            
-                let provindeId = $(this).val();
-                if (provindeId) {
-
+                let provinsiId = $(this).val();
+                if (provinsiId) {
                     $("#loading").show();
                     $.ajax({
                         type: 'get',
-                        url: '{{ url('ongkir/get-all-kota') }}' + '/' + provindeId,
+                        url: '{{ url('ongkir/get-all-kota') }}' + '/' + provinsiId,
                         success: function(data) {
                             $("select[name=city_destination]").html(data);
 
+                            // Set default value for the "city" select element if $website->kota is available
+                            var cityId = {{ $website->kota ?? 'null' }};
+                            if (cityId !== null) {
+                                $("#city").val(cityId).trigger(
+                                    'change'
+                                    ); // Set the value and trigger the change event for Select2
+                            }
+
                             $("#loading").hide();
                         }
-                    })
+                    });
                 } else {
                     $('select[name="city_destination"]').append(
                         '<option value="">-- pilih kota tujuan --</option>');
+
+                    // Reset the "city" select element
+                    $("#city").val(null).trigger(
+                        'change'); // Set the value to null and trigger the change event for Select2
                 }
             });
 
-            //ajax select kecamatan tujuan
-            $('select[name="city_destination"]').on('change', function() {
-                let cityId = $(this).val();
-                if (cityId) {
-
-                    $("#loading").show();
-                    $.ajax({
-                        type: 'get',
-                        url: '{{ url('ongkir/get-all-kecamatan') }}' + '/' + cityId,
-                        success: function(data) {
-                            $("select[name=district_destination]").html(data);
-
-                            $("#loading").hide();
-                        }
-                    })
-                } else {
-                    $('select[name="district_destination"]').append(
-                        '<option value="">-- pilih Kecamatan Tujuan --</option>');
-                }
-            });
         });
     </script>
 @endsection

@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
             WebsiteSeeder::class,
             ProdukSeeder::class,
             KategoriSeeder::class,
-            // IndoRegionProvinceSeeder::class,
-            // IndoRegionRegencySeeder::class,
-            // IndoRegionDistrictSeeder::class,
+            IndoRegionProvinceSeeder::class,
+            IndoRegionRegencySeeder::class,
+            IndoRegionDistrictSeeder::class,
             // IndoRegionVillageSeeder::class,
         ]);
     }

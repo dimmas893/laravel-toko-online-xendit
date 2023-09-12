@@ -23,6 +23,7 @@ class CartController extends Controller
         // $provinces = OngkirProvince::pluck('name', 'province_id');
         $this->tax();
         $cartItems = \Cart::getContent();
+        // dd($cartItems);
         $subTotal = \Cart::getSubTotal();
         $condition = \Cart::getCondition('ppn');
         $ppn = $condition->parsedRawValue;

@@ -21,7 +21,7 @@ class ProvinceOngkir extends Model
      *
      * @var string
      */
-    protected $table = 'provincesongkir';
+    protected $table = 'provinces';
 
     /**
      * Province has many regencies.
@@ -33,8 +33,8 @@ class ProvinceOngkir extends Model
         return $this->hasMany(RegencyOngkir::class);
     }
 
-    public function websiteprovinsi(){
-    	return $this->hasOne(ProvinceOngkir::class,'provinsi');
+    public function websiteprovinsi()
+    {
+        return $this->hasOne(ProvinceOngkir::class, 'provinsi');
     }
-
 }

@@ -22,7 +22,7 @@ class DistrictOngkir extends Model
      *
      * @var string
      */
-    protected $table = 'districtsongkir';
+    protected $table = 'districts';
 
     /**
      * The attributes that should be hidden for arrays.
@@ -42,6 +42,4 @@ class DistrictOngkir extends Model
     {
         return $this->belongsTo(RegencyOngkir::class);
     }
-
-
 }
